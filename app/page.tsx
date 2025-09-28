@@ -1,103 +1,214 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import Footer from '../components/Footer';
+import Navigation from '../components/Navigation';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Kiet Nguyen is a software engineer specializing in scalable systems and microservices. Explore insights about modern web development, technology, and engineering best practices.",
+  openGraph: {
+    title: "Kiet Nguyen - Software Engineer",
+    description: "Software engineer specializing in scalable systems and microservices. Explore insights about modern web development and technology.",
+    url: "https://kietnguyen.me",
+    images: ["/profile.jpg"],
+  },
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-2xl mx-auto px-8">
+        
+        <Navigation />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        {/* Profile Section */}
+        <section className="mb-32">
+          <div className="flex flex-col md:flex-row md:items-start md:space-x-12 space-y-8 md:space-y-0">
+            
+            {/* Profile Image */}
+            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto md:mx-0 flex-shrink-0 bg-gray-100">
+              <Image
+                src="/profile.jpg"
+                alt="Kiet Nguyen"
+                width={192}
+                height={192}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+
+            {/* Introduction */}
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
+                Software Builder
+              </h1>
+              <p className="text-gray-600 leading-relaxed mb-6">
+              Building scalable systems and exploring new technologies. 
+                currently working with kotlin, react, and cloud infrastructure.
+              </p>
+              <p className="text-sm text-gray-400 font-mono mb-6">
+                ho chi minh city, vietnam
+              </p>
+              
+              {/* Social Links */}
+              <div className="flex space-x-4">
+                <a 
+                  href="mailto:kietnguyen.me@gmail.com"
+                  className="group flex flex-col items-center"
+                  title="Email"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://linkedin.com/in/kiet-nguyen"
+                  className="group flex flex-col items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://github.com/kiet-nguyen"
+                  className="group flex flex-col items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </a>
+                
+                <Link 
+                  href="/resume"
+                  className="group flex flex-col items-center"
+                  title="Resume"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+          {/* Latest Blog Posts */}
+          <section className="mb-32">
+            <div className="text-left">
+              <h2 className="text-lg font-medium mb-8 uppercase tracking-wider">Latest Posts</h2>
+            <div className="space-y-6">
+              {/* Blog post placeholder */}
+              <Link href="/blog/building-scalable-microservices-with-kotlin">
+                <article className="border-b border-gray-100 pb-6 group">
+                  <div className="flex items-start gap-4">
+                    {/* Code Icon */}
+                    <div className="flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 640 512">
+                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+                      </svg>
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
+                          building scalable microservices with kotlin
+                        </h3>
+                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
+                          dec 2024
+                        </time>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        exploring best practices for designing microservices architecture using kotlin and spring boot...
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+              
+              <Link href="/blog/optimizing-react-performance">
+                <article className="border-b border-gray-100 pb-6 group">
+                  <div className="flex items-start gap-4">
+                    {/* Code Icon */}
+                    <div className="flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 640 512">
+                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+                      </svg>
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
+                          optimizing react performance
+                        </h3>
+                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
+                          nov 2024
+                        </time>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        techniques for improving react application performance through memoization and code splitting...
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+              
+              <Link href="/blog/aws-cost-optimization-strategies">
+                <article className="border-b border-gray-100 pb-6 group">
+                  <div className="flex items-start gap-4">
+                    {/* Code Icon */}
+                    <div className="flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 640 512">
+                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+                      </svg>
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
+                          aws cost optimization strategies
+                        </h3>
+                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
+                          oct 2024
+                        </time>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        practical approaches to reducing aws infrastructure costs without compromising performance...
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+              
+              <div className="pt-4">
+                <Link href="/blog" className="text-sm text-gray-400 hover:text-gray-600 transition-colors font-mono">
+                  view all posts →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+
+      </div>
     </div>
   );
 }
