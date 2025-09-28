@@ -22,11 +22,8 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <div className="max-w-2xl mx-auto px-8">
         <Navigation />
-
-        {/* Profile Section */}
         <section className="mb-32">
           <div className="flex flex-col md:flex-row md:items-start md:space-x-12 space-y-8 md:space-y-0">
-            {/* Profile Image */}
             <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto md:mx-0 flex-shrink-0 bg-gray-100">
               <Image
                 src="/kietnguyen-profile.png"
@@ -39,19 +36,17 @@ export default function Home() {
             </div>
 
             <div className="flex-1">
-              <h1 className="text-1xl md:text-1xl font-light mb-4 leading-tight text-center md:text-left">
-                SOFTWARE BUILDER
+              <h1 className="text-1xl md:text-1xl mb-4 leading-tight text-center md:text-left font-bold">
+                kiet nguyen
               </h1>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Building scalable systems and exploring new technologies.
-                currently working with kotlin, react, and cloud infrastructure.
+              <p className="text-gray-600 leading-relaxed mb-6 text-center md:text-left">
+                software engineer | web developer | bug specialist
               </p>
-              <p className="text-sm text-gray-400 font-mono mb-6">
-                ho chi minh city, vietnam
+              <p className="text-sm text-gray-400 font-mono mb-6 text-center md:text-left">
+                Ho Chi Minh City, VietNam
               </p>
 
-              {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 justify-center md:justify-start">
                 <a
                   href="mailto:kietnguyen.me@gmail.com"
                   className="group flex flex-col items-center"
@@ -75,7 +70,7 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/kiet-nguyen"
+                  href="https://linkedin.com/in/kiet-nguyen-tuan"
                   className="group flex flex-col items-center"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -93,7 +88,7 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://github.com/kiet-nguyen"
+                  href="https://github.com/iamkiet"
                   className="group flex flex-col items-center"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -135,10 +130,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="mb-32">
           <div className="text-left">
-            <h2 className="text-lg font-medium mb-8 uppercase tracking-wider">
+            <h2 className="text-lg font-medium mb-6 uppercase tracking-wider">
               Latest Posts
             </h2>
             <div className="space-y-6">
@@ -158,14 +152,14 @@ export default function Home() {
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          building scalable microservices with kotlin
+                          Building scalable microservices with kotlin
                         </h3>
                         <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
                           dec 2024
                         </time>
                       </div>
                       <p className="text-xs text-gray-500 leading-relaxed">
-                        exploring best practices for designing microservices
+                        Exploring best practices for designing microservices
                         architecture using kotlin and spring boot...
                       </p>
                     </div>
@@ -189,14 +183,14 @@ export default function Home() {
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          optimizing react performance
+                          Optimizing react performance
                         </h3>
                         <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
                           nov 2024
                         </time>
                       </div>
                       <p className="text-xs text-gray-500 leading-relaxed">
-                        techniques for improving react application performance
+                        Techniques for improving react application performance
                         through memoization and code splitting...
                       </p>
                     </div>
@@ -207,7 +201,6 @@ export default function Home() {
               <Link href="/blog/aws-cost-optimization-strategies">
                 <article className="border-b border-gray-100 pb-6 group">
                   <div className="flex items-start gap-4">
-                    {/* Code Icon */}
                     <div className="flex-shrink-0 mt-1">
                       <svg
                         className="w-4 h-4 text-gray-400"
@@ -221,14 +214,14 @@ export default function Home() {
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          aws cost optimization strategies
+                          AWS cost optimization strategies
                         </h3>
                         <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
                           oct 2024
                         </time>
                       </div>
                       <p className="text-xs text-gray-500 leading-relaxed">
-                        practical approaches to reducing aws infrastructure
+                        Practical approaches to reducing aws infrastructure
                         costs without compromising performance...
                       </p>
                     </div>
@@ -247,7 +240,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <Footer />
       </div>
     </div>

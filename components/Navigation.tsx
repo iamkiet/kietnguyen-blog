@@ -23,7 +23,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="pt-12 pb-24">
+    <nav className="pt-8 pb-18">
       <div className="flex justify-between items-center">
         <Link
           href="/"
