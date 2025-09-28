@@ -54,25 +54,23 @@ export default function About() {
 
               <div className="flex-1">
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Hi, I&apos;m Kiet Nguyen, a Senior Software Engineer currently
-                  working at <strong>Thoughtworks</strong>. I specialize in
-                  building scalable microservices architectures and have a
-                  passion for creating robust, maintainable systems that solve
-                  real-world problems.
+                  Hi, I&apos;m Kiet Nguyen, a Senior Software Engineer,
+                  JavaScript and Node.js enthusiast, and coffee holic. I love
+                  building robust, maintainable systems and sharing my journey
+                  with the developer community.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  With over 5 years of experience in software development,
-                  I&apos;ve had the opportunity to work across the full stack,
-                  from designing distributed systems to crafting user
-                  interfaces. My journey has taken me through various domains,
-                  but I&apos;m particularly drawn to the challenges of building
-                  resilient, high-performance applications.
+                  My expertise spans from designing scalable backend APIs with
+                  Node.js and Fastify to crafting modern web apps with ReactJS.
+                  I&apos;m passionate about JavaScript, cloud-native
+                  architectures, and always on the lookout for the next great
+                  cup of coffee.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  When I&apos;m not coding, you&apos;ll find me exploring new
-                  technologies, mentoring fellow developers, or enjoying a good
-                  cup of Vietnamese coffee while pondering the next
-                  architectural challenge.
+                  When I&apos;m not coding, you&apos;ll find me experimenting
+                  with new JavaScript frameworks, mentoring developers, or
+                  enjoying a strong Vietnamese coffee while brainstorming my
+                  next project.
                 </p>
               </div>
             </div>
@@ -218,21 +216,21 @@ export default function About() {
                   code isn&apos;t just about following conventions—it&apos;s
                   about respecting the next developer (who might be you in six
                   months) and building systems that can evolve gracefully over
-                  time.
+                  time. JavaScript and Node.js have taught me the value of
+                  clarity and simplicity in code.
                 </p>
               </div>
-
               <div>
                 <h3 className="font-medium mb-2 text-black">Architecture</h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   I approach system design with pragmatism over perfectionism.
                   Every architectural decision should serve a business purpose
                   and be sustainable for the team maintaining it. I&apos;m a
-                  strong advocate for evolutionary architecture and continuous
-                  improvement.
+                  strong advocate for evolutionary architecture, continuous
+                  improvement, and using the right tool for the job—whether
+                  that&apos;s Node.js, React, or something new.
                 </p>
               </div>
-
               <div>
                 <h3 className="font-medium mb-2 text-black">Collaboration</h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
@@ -240,6 +238,7 @@ export default function About() {
                   mentoring junior developers, facilitating technical
                   discussions, and creating an environment where everyone feels
                   comfortable contributing ideas and asking questions.
+                  Coffee-fueled brainstorming sessions are my favorite!
                 </p>
               </div>
             </div>
@@ -254,25 +253,26 @@ export default function About() {
               <div>
                 <h3 className="font-medium mb-3 text-black">Learning</h3>
                 <p className="text-gray-700 leading-relaxed text-sm mb-2">
-                  Currently exploring Rust for systems programming and diving
-                  deeper into machine learning applications in software
-                  engineering.
+                  Currently exploring advanced JavaScript patterns, Node.js
+                  performance tuning, and diving deeper into the world of
+                  backend APIs and cloud-native development.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-sm">
-                  Always reading technical books and staying updated with the
-                  latest developments in cloud-native technologies.
+                  Always reading technical books, experimenting with new
+                  frameworks, and staying updated with the latest in the
+                  JavaScript and Node.js ecosystem.
                 </p>
               </div>
-
               <div>
                 <h3 className="font-medium mb-3 text-black">Community</h3>
                 <p className="text-gray-700 leading-relaxed text-sm mb-2">
                   Active in the local tech community, occasionally speaking at
-                  meetups and helping organize coding workshops for newcomers.
+                  meetups, helping organize coding workshops for newcomers, and
+                  sharing my love for JavaScript and Node.js.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-sm">
-                  Believe in giving back through mentoring and sharing
-                  knowledge—hence this blog!
+                  Believe in giving back through mentoring, open source, and
+                  sharing knowledge—hence this blog!
                 </p>
               </div>
             </div>

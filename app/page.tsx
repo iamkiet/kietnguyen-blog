@@ -3,6 +3,9 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import { Metadata } from "next";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -39,8 +42,8 @@ export default function Home() {
               <h1 className="text-1xl md:text-1xl mb-4 leading-tight text-center md:text-left font-bold">
                 kiet nguyen
               </h1>
-              <p className="text-gray-600 leading-relaxed mb-6 text-center md:text-left">
-                software engineer | web developer | bug specialist
+              <p className="text-gray-700 mb-6 text-center md:text-left font-light lowercase tracking-wide">
+                software engineer, coffeeholic
               </p>
               <p className="text-sm text-gray-400 font-mono mb-6 text-center md:text-left">
                 Ho Chi Minh City, VietNam
@@ -133,102 +136,71 @@ export default function Home() {
         <section className="mb-32">
           <div className="text-left">
             <h2 className="text-lg font-medium mb-6 uppercase tracking-wider">
-              Latest Posts
+              latest posts
             </h2>
             <div className="space-y-6">
-              <Link href="/blog/building-scalable-microservices-with-kotlin">
-                <article className="border-b border-gray-100 pb-6 group">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <svg
-                        className="w-4 h-4 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 640 512"
-                      >
-                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
-                      </svg>
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          Building scalable microservices with kotlin
-                        </h3>
-                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
-                          dec 2024
-                        </time>
+              {(() => {
+                const postsDirectory = path.join(process.cwd(), "data/blog");
+                const filenames = fs
+                  .readdirSync(postsDirectory)
+                  .filter((f) => f.endsWith(".md"));
+                const posts = filenames
+                  .map((filename) => {
+                    const filePath = path.join(postsDirectory, filename);
+                    const fileContents = fs.readFileSync(filePath, "utf8");
+                    const { data, content } = matter(fileContents);
+                    return {
+                      slug: data.slug,
+                      title: data.title,
+                      date: data.date,
+                      readTime: data.readTime,
+                      excerpt:
+                        content
+                          .split("\n")
+                          .find(
+                            (line: string) =>
+                              line &&
+                              !line.startsWith("#") &&
+                              !line.startsWith("---")
+                          )
+                          ?.slice(0, 120) || "",
+                    };
+                  })
+                  .sort(
+                    (a, b) =>
+                      new Date(b.date).getTime() - new Date(a.date).getTime()
+                  );
+                return posts.slice(0, 3).map((post) => (
+                  <Link key={post.slug} href={`/blog/${post.slug}`}>
+                    <article className="border-b border-gray-100 pb-6 mt-8 group">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 mt-1">
+                          <svg
+                            className="w-4 h-4 text-gray-400"
+                            fill="currentColor"
+                            viewBox="0 0 640 512"
+                          >
+                            <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
+                              {post.title}
+                            </h3>
+                            <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
+                              {post.date}
+                            </time>
+                          </div>
+                          <p className="text-xs text-gray-500 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-xs text-gray-500 leading-relaxed">
-                        Exploring best practices for designing microservices
-                        architecture using kotlin and spring boot...
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-
-              <Link href="/blog/optimizing-react-performance">
-                <article className="border-b border-gray-100 pb-6 group">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <svg
-                        className="w-4 h-4 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 640 512"
-                      >
-                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
-                      </svg>
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          Optimizing react performance
-                        </h3>
-                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
-                          nov 2024
-                        </time>
-                      </div>
-                      <p className="text-xs text-gray-500 leading-relaxed">
-                        Techniques for improving react application performance
-                        through memoization and code splitting...
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-
-              <Link href="/blog/aws-cost-optimization-strategies">
-                <article className="border-b border-gray-100 pb-6 group">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <svg
-                        className="w-4 h-4 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 640 512"
-                      >
-                        <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
-                      </svg>
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-sm group-hover:text-gray-600 transition-colors cursor-pointer">
-                          AWS cost optimization strategies
-                        </h3>
-                        <time className="text-xs text-gray-400 font-mono flex-shrink-0 ml-4">
-                          oct 2024
-                        </time>
-                      </div>
-                      <p className="text-xs text-gray-500 leading-relaxed">
-                        Practical approaches to reducing aws infrastructure
-                        costs without compromising performance...
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-
+                    </article>
+                  </Link>
+                ));
+              })()}
               <div className="pt-4">
                 <Link
                   href="/blog"
