@@ -1,30 +1,32 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import Footer from '../../../components/Footer';
-import Navigation from '../../../components/Navigation';
+import Link from "next/link";
+import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import Footer from "../../../components/Footer";
+import Navigation from "../../../components/Navigation";
 
 export default function BlogPost() {
   const [comments, setComments] = useState([
     {
       id: 1,
-      author: 'Jane Doe',
-      content: 'Great insights! This helped me understand microservices architecture better.',
-      date: '2 days ago'
+      author: "Jane Doe",
+      content:
+        "Great insights! This helped me understand microservices architecture better.",
+      date: "2 days ago",
     },
     {
       id: 2,
-      author: 'Mike Chen',
-      content: 'Thanks for sharing your experience with Kotlin and Spring Boot.',
-      date: '1 day ago'
-    }
+      author: "Mike Chen",
+      content:
+        "Thanks for sharing your experience with Kotlin and Spring Boot.",
+      date: "1 day ago",
+    },
   ]);
 
-  const [newComment, setNewComment] = useState({ author: '', content: '' });
+  const [newComment, setNewComment] = useState({ author: "", content: "" });
 
   const handleSubmitComment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,18 +35,18 @@ export default function BlogPost() {
         id: comments.length + 1,
         author: newComment.author,
         content: newComment.content,
-        date: 'just now'
+        date: "just now",
       };
       setComments([...comments, comment]);
-      setNewComment({ author: '', content: '' });
+      setNewComment({ author: "", content: "" });
     }
   };
 
   // Sample blog post data (in real app, this would come from CMS/database)
   const post = {
-    title: 'Building Scalable Microservices with Kotlin',
-    date: 'December 15, 2024',
-    readTime: '8 min read',
+    title: "Building Scalable Microservices with Kotlin",
+    date: "December 15, 2024",
+    readTime: "8 min read",
     content: `# Introduction
 
 Microservices architecture has become increasingly popular for building scalable, maintainable applications. In this post, I'll share my experience building microservices using **Kotlin** and **Spring Boot**.
@@ -91,7 +93,7 @@ spring:
 
 The following diagram shows how microservices communicate:
 
-![Microservices Architecture](/profile.jpg "Microservices communication flow")
+![Microservices Architecture](/sample.jpg "Microservices communication flow")
 
 *Note: You can add images using markdown syntax: \`![alt text](/image-path "optional title")\`*
 
@@ -124,13 +126,12 @@ Kotlin provides an excellent foundation for building microservices. The language
 **Resources:**
 - [Kotlin Documentation](https://kotlinlang.org/docs/)
 - [Spring Boot with Kotlin](https://spring.io/guides/tutorials/spring-boot-kotlin/)
-- [Microservices Patterns](https://microservices.io/patterns/)`
+- [Microservices Patterns](https://microservices.io/patterns/)`,
   };
 
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-3xl mx-auto px-8">
-        
         <div className="pb-8">
           <Navigation />
         </div>
@@ -150,46 +151,76 @@ Kotlin provides an excellent foundation for building microservices. The language
 
           {/* Post Content */}
           <div className="prose prose-gray max-w-none text-gray-700 leading-relaxed">
-            <ReactMarkdown 
+            <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
               components={{
-                h1: ({children}) => (
+                h1: ({ children }) => (
                   <h1 className="text-2xl font-light mt-12 mb-6 first:mt-0 text-black">
                     {children}
                   </h1>
                 ),
-                h2: ({children}) => (
+                h2: ({ children }) => (
                   <h2 className="text-xl font-light mt-8 mb-4 text-black">
                     {children}
                   </h2>
                 ),
-                h3: ({children}) => (
+                h3: ({ children }) => (
                   <h3 className="text-lg font-light mt-6 mb-3 text-black">
                     {children}
                   </h3>
                 ),
-                p: ({children}) => (
-                  <p className="mb-4 leading-relaxed">
-                    {children}
-                  </p>
+                p: ({ children }) => {
+                  // Unwrap <figure> or <figcaption> descendants to avoid invalid HTML
+                  const containsBlock = (nodes: React.ReactNode): boolean => {
+                    if (!Array.isArray(nodes)) return false;
+                    return nodes.some((child) => {
+                      if (
+                        (typeof child === "object" &&
+                          child !== null &&
+                          "type" in child &&
+                          (child as { type?: string }).type === "figure") ||
+                        (child as { type?: string }).type === "figcaption"
+                      ) {
+                        return true;
+                      }
+                      // Recursively check children
+                      if (
+                        typeof child === "object" &&
+                        child !== null &&
+                        "props" in child &&
+                        (child as { props?: { children?: React.ReactNode } })
+                          .props &&
+                        containsBlock(
+                          (child as { props?: { children?: React.ReactNode } })
+                            .props?.children
+                        )
+                      ) {
+                        return true;
+                      }
+                      return false;
+                    });
+                  };
+                  if (containsBlock(children)) {
+                    return <>{children}</>;
+                  }
+                  return <p className="mb-4 leading-relaxed">{children}</p>;
+                },
+                ul: ({ children }) => (
+                  <ul className="mb-4 space-y-2 ml-4">{children}</ul>
                 ),
-                ul: ({children}) => (
-                  <ul className="mb-4 space-y-2 ml-4">
-                    {children}
-                  </ul>
-                ),
-                ol: ({children}) => (
+                ol: ({ children }) => (
                   <ol className="mb-4 space-y-2 ml-4 list-decimal">
                     {children}
                   </ol>
                 ),
-                li: ({children}) => (
-                  <li className="text-gray-700">
-                    {children}
-                  </li>
+                li: ({ children }) => (
+                  <li className="text-gray-700">{children}</li>
                 ),
-                code: ({children, ...props}: React.ComponentProps<'code'>) => {
+                code: ({
+                  children,
+                  ...props
+                }: React.ComponentProps<"code">) => {
                   const isInline = !props.className;
                   return isInline ? (
                     <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">
@@ -201,39 +232,37 @@ Kotlin provides an excellent foundation for building microservices. The language
                     </code>
                   );
                 },
-                pre: ({children}) => (
+                pre: ({ children }) => (
                   <pre className="bg-gray-50 p-4 rounded text-sm font-mono overflow-x-auto mb-4">
                     {children}
                   </pre>
                 ),
-                blockquote: ({children}) => (
+                blockquote: ({ children }) => (
                   <blockquote className="border-l-4 border-gray-200 pl-4 my-4 italic text-gray-600">
                     {children}
                   </blockquote>
                 ),
-                table: ({children}) => (
+                table: ({ children }) => (
                   <table className="w-full border-collapse border border-gray-200 my-4">
                     {children}
                   </table>
                 ),
-                th: ({children}) => (
+                th: ({ children }) => (
                   <th className="border border-gray-200 px-4 py-2 bg-gray-50 text-left font-medium">
                     {children}
                   </th>
                 ),
-                td: ({children}) => (
+                td: ({ children }) => (
                   <td className="border border-gray-200 px-4 py-2">
                     {children}
                   </td>
                 ),
-                strong: ({children}) => (
-                  <strong className="font-medium text-black">
-                    {children}
-                  </strong>
+                strong: ({ children }) => (
+                  <strong className="font-medium text-black">{children}</strong>
                 ),
-                a: ({href, children}) => (
-                  <a 
-                    href={href} 
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
                     className="text-black underline hover:text-gray-600 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -241,24 +270,24 @@ Kotlin provides an excellent foundation for building microservices. The language
                     {children}
                   </a>
                 ),
-                img: ({src, alt}) => (
-                  <div className="my-8 text-center">
+                img: ({ src, alt }) => (
+                  <figure className="my-8 text-center">
                     <picture>
-                      <source srcSet={typeof src === 'string' ? src : ''} />
+                      <source srcSet={typeof src === "string" ? src : ""} />
                       <img
-                        src={typeof src === 'string' ? src : ''}
-                        alt={alt || ''}
+                        src={typeof src === "string" ? src : ""}
+                        alt={alt || ""}
                         className="rounded-lg mx-auto max-w-full h-auto"
-                        style={{ objectFit: 'contain' }}
+                        style={{ objectFit: "contain" }}
                       />
                     </picture>
                     {alt && (
-                      <p className="text-sm text-gray-500 mt-2 italic">
+                      <figcaption className="text-sm text-gray-500 mt-2 italic">
                         {alt}
-                      </p>
+                      </figcaption>
                     )}
-                  </div>
-                )
+                  </figure>
+                ),
               }}
             >
               {post.content}
@@ -268,7 +297,9 @@ Kotlin provides an excellent foundation for building microservices. The language
 
         {/* Comments Section */}
         <section className="border-t border-gray-100 pt-12 mb-16">
-          <h2 className="text-lg font-medium mb-8 uppercase tracking-wider">Comments ({comments.length})</h2>
+          <h2 className="text-lg font-medium mb-8 uppercase tracking-wider">
+            Comments ({comments.length})
+          </h2>
 
           {/* Comment Form */}
           <form onSubmit={handleSubmitComment} className="mb-12">
@@ -277,14 +308,18 @@ Kotlin provides an excellent foundation for building microservices. The language
                 type="text"
                 placeholder="your name"
                 value={newComment.author}
-                onChange={(e) => setNewComment({ ...newComment, author: e.target.value })}
+                onChange={(e) =>
+                  setNewComment({ ...newComment, author: e.target.value })
+                }
                 className="w-full px-0 py-2 text-sm border-0 border-b border-gray-200 focus:border-gray-400 focus:outline-none bg-transparent"
                 required
               />
               <textarea
                 placeholder="leave a comment..."
                 value={newComment.content}
-                onChange={(e) => setNewComment({ ...newComment, content: e.target.value })}
+                onChange={(e) =>
+                  setNewComment({ ...newComment, content: e.target.value })
+                }
                 className="w-full px-0 py-2 text-sm border-0 border-b border-gray-200 focus:border-gray-400 focus:outline-none resize-none bg-transparent"
                 rows={3}
                 required
@@ -301,10 +336,15 @@ Kotlin provides an excellent foundation for building microservices. The language
           {/* Comments List */}
           <div className="space-y-8">
             {comments.map((comment) => (
-              <div key={comment.id} className="border-b border-gray-50 pb-6 last:border-b-0">
+              <div
+                key={comment.id}
+                className="border-b border-gray-50 pb-6 last:border-b-0"
+              >
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-sm font-medium">{comment.author}</h3>
-                  <time className="text-xs text-gray-400 font-mono">{comment.date}</time>
+                  <time className="text-xs text-gray-400 font-mono">
+                    {comment.date}
+                  </time>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {comment.content}
@@ -316,13 +356,15 @@ Kotlin provides an excellent foundation for building microservices. The language
 
         {/* Back Link */}
         <div className="pb-8 text-center">
-          <Link href="/blog" className="text-sm text-gray-400 hover:text-gray-600 transition-colors font-mono">
+          <Link
+            href="/blog"
+            className="text-sm text-gray-400 hover:text-gray-600 transition-colors font-mono"
+          >
             ← back to blog
           </Link>
         </div>
 
         <Footer />
-
       </div>
     </div>
   );
