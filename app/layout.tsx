@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://todaywegrind",
+    url: "https://todaywegrind.com",
     siteName: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
     title: "Todaywegrind | Kiet Nguyen | Coding | Coffee", // You can use title.default here if you want to avoid hardcoding
     description:
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://todaywegrind",
+    canonical: "https://todaywegrind.com",
   },
   icons: {
     icon: "/terminal-solid-full.svg", // Flaticon terminal icon
@@ -106,7 +106,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Kiet Nguyen",
-              url: "https://todaywegrind",
+              url: "https://todaywegrind.com",
               jobTitle: "Software Engineer",
               worksFor: {
                 "@type": "Organization",

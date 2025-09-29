@@ -36,7 +36,7 @@ export default function Navigation() {
             today we grind!
           </span>
         </Link>
-        <div className="space-x-6">
+        <div className="space-x-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
