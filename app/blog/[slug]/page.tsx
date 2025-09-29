@@ -8,13 +8,14 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import Footer from "../../../components/Footer";
 import Navigation from "../../../components/Navigation";
+import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function BlogPost({ params }: BlogPostProps) {
-  const { slug } = params;
+export default async function BlogPost({ params }: BlogPostProps) {
+  const { slug } = await params;
   const filePath = path.join(process.cwd(), "data/blog", `${slug}.md`);
   const file = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(file);
@@ -123,22 +124,12 @@ export default function BlogPost({ params }: BlogPostProps) {
                   </a>
                 ),
                 img: ({ src, alt }) => (
-                  <figure className="my-8 text-center">
-                    <picture>
-                      <source srcSet={typeof src === "string" ? src : ""} />
-                      <img
-                        src={typeof src === "string" ? src : ""}
-                        alt={alt || ""}
-                        className="rounded-lg mx-auto max-w-full h-auto"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </picture>
-                    {alt && (
-                      <figcaption className="text-sm text-gray-500 mt-2 italic">
-                        {alt}
-                      </figcaption>
-                    )}
-                  </figure>
+                  <img
+                    src={typeof src === "string" ? src : ""}
+                    alt={alt || ""}
+                    className="rounded-lg mx-auto max-w-full h-auto"
+                    style={{ objectFit: "contain" }}
+                  />
                 ),
               }}
             >
@@ -146,6 +137,7 @@ export default function BlogPost({ params }: BlogPostProps) {
             </ReactMarkdown>
           </div>
         </article>
+        <ShareButtons slug={slug} title={data.title} />
         <div className="pb-8 text-center">
           <Link
             href="/blog"
