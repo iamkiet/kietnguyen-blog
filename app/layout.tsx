@@ -139,13 +139,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="max-w-2xl mx-auto px-8">
-          <Navigation />
-        </div>
         {children}
-        <div className="max-w-2xl mx-auto px-8">
-          <Footer />
-        </div>
       </body>
     </html>
   );
