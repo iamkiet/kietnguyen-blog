@@ -46,12 +46,13 @@ export default function Resume() {
 
         <div className="bg-gray-200 p-6">
           <p className="text-gray-800 text-sm leading-relaxed">
-            Software engineer with a strong foundation in designing, highly
-            experienced in all phases of the software development lifecycle,
-            from concept and architecture to deployment and optimization. I
-            enjoy designing scalable systems, improving performance, and
-            automating processes. Known for being detail-oriented,
-            collaborative, and committed to building high-quality solutions.
+            Software engineer (8+ YOE) with a strong foundation in designing,
+            highly experienced in all phases of the software development
+            lifecycle, from concept and architecture to deployment and
+            optimization. I enjoy designing scalable systems, improving
+            performance, and automating processes. Known for being
+            detail-oriented, collaborative, and committed to building
+            high-quality solutions.
           </p>
         </div>
 
@@ -100,24 +101,14 @@ export default function Resume() {
                   Certificates
                 </h2>
                 <div className="space-y-2 text-sm">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 mr-3">
-                      <div className="w-5 h-4 flex items-center justify-center">
-                        <span className="text-black font-mono text-xs font-bold">
-                          &lt;/&gt;
-                        </span>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-black">
-                        HackerRank - SQL (Advanced) Certificate
-                      </p>
-                    </div>
+                  <div>
+                    <p className="text-black">
+                      HackerRank - SQL (Advanced) Certificate
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Languages */}
               <div>
                 <h2 className="text-lg font-bold text-black mb-4 uppercase">
                   Languages
