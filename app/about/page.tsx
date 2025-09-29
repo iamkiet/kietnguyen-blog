@@ -31,10 +31,9 @@ export default function About() {
       <div className="max-w-2xl mx-auto px-8">
         <Navigation />
 
-        {/* Header */}
         <header className="mb-16">
           <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-            About Me
+            about me
           </h1>
         </header>
 
@@ -76,7 +75,6 @@ export default function About() {
             </div>
           </section>
 
-          {/* Current Role */}
           <section>
             <h2 className="text-xl font-medium mb-6 text-black uppercase tracking-wider">
               Current Role
@@ -115,7 +113,6 @@ export default function About() {
             </div>
           </section>
 
-          {/* Technical Expertise */}
           <section>
             <h2 className="text-xl font-medium mb-6 text-black uppercase tracking-wider">
               Technical Expertise
@@ -127,10 +124,10 @@ export default function About() {
                   Languages & Frameworks
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-black text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Kotlin
                   </span>
-                  <span className="px-3 py-1 bg-black text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Java
                   </span>
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
@@ -139,7 +136,7 @@ export default function About() {
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     TypeScript
                   </span>
-                  <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Python
                   </span>
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
@@ -148,7 +145,7 @@ export default function About() {
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Next.js
                   </span>
-                  <span className="px-3 py-1 bg-black text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Spring Boot
                   </span>
                 </div>
@@ -171,10 +168,10 @@ export default function About() {
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Kubernetes
                   </span>
-                  <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     Kafka
                   </span>
-                  <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded-full">
+                  <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
                     RabbitMQ
                   </span>
                   <span className="px-3 py-1 bg-gray-800 text-white text-xs font-mono rounded-full">
@@ -191,19 +188,9 @@ export default function About() {
                   </span>
                 </div>
               </div>
-
-              <div className="text-xs text-gray-400 font-mono">
-                <span className="inline-block w-3 h-3 bg-black rounded-full mr-2"></span>
-                Expert
-                <span className="inline-block w-3 h-3 bg-gray-800 rounded-full mr-2 ml-4"></span>
-                Proficient
-                <span className="inline-block w-3 h-3 bg-gray-600 rounded-full mr-2 ml-4"></span>
-                Intermediate
-              </div>
             </div>
           </section>
 
-          {/* Philosophy & Approach */}
           <section>
             <h2 className="text-xl font-medium mb-6 text-black uppercase tracking-wider">
               Philosophy & Approach
@@ -244,7 +231,6 @@ export default function About() {
             </div>
           </section>
 
-          {/* Interests */}
           <section>
             <h2 className="text-xl font-medium mb-6 text-black uppercase tracking-wider">
               Beyond Coding
@@ -278,7 +264,6 @@ export default function About() {
             </div>
           </section>
 
-          {/* Contact */}
           <section className="border-t border-gray-100 pt-12">
             <h2 className="text-xl font-medium mb-6 text-black uppercase tracking-wider">
               Let&apos;s Connect
@@ -292,21 +277,21 @@ export default function About() {
             <div className="flex space-x-4">
               <a
                 href="mailto:kietnguyen.me@gmail.com"
-                className="text-sm text-gray-600 hover:text-black transition-colors underline"
+                className="text-sm text-gray-600 hover:text-black transition-colors"
               >
                 Email me
               </a>
               <a
-                href="https://linkedin.com/in/kiet-nguyen"
+                href="https://linkedin.com/in/kiet-nguyen-tuan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-600 hover:text-black transition-colors underline"
+                className="text-sm text-gray-600 hover:text-black transition-colors"
               >
                 Connect on LinkedIn
               </a>
               <Link
                 href="/resume"
-                className="text-sm text-gray-600 hover:text-black transition-colors underline"
+                className="text-sm text-gray-600 hover:text-black transition-colors"
               >
                 View my resume
               </Link>

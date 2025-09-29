@@ -66,12 +66,33 @@ export default function Home() {
                 >
                   meet kiet
                 </Link>
+                <Link
+                  href="/gallery"
+                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
+                >
+                  gallery
+                </Link>
+                <Link
+                  href="/journey"
+                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
+                >
+                  journey
+                </Link>
                 <a
                   href="mailto:kietnguyen.me@gmail.com"
                   className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
                   title="Copy my mail"
                 >
-                  kietnguyen.me@gmail.com
+                  email
+                </a>
+                <a
+                  href="https://github.com/iamkiet"
+                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                >
+                  github
                 </a>
                 <a
                   href="https://linkedin.com/in/kiet-nguyen-tuan"
@@ -82,20 +103,18 @@ export default function Home() {
                 >
                   linkedin
                 </a>
-                <a
-                  href="https://github.com/iamkiet"
-                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="GitHub"
-                >
-                  github.com/iamkiet
-                </a>
                 <Link
                   href="/resume"
-                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
+                  className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors flex items-center gap-1"
                   title="Resume"
                 >
+                  <span
+                    role="img"
+                    aria-label="apple burger"
+                    className="inline-block align-middle"
+                  >
+                    🍔
+                  </span>
                   resume
                 </Link>
               </div>
