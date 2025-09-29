@@ -29,7 +29,12 @@ export default function Navigation() {
           href="/"
           className="text-lg font-mono text-black hover:text-gray-600 transition-colors"
         >
-          &lt;kietnguyen/&gt;
+          <span className="text-black italic">
+            <span role="img" aria-label="hey" className="mr-1 align-middle">
+              👋
+            </span>
+            today we grind!
+          </span>
         </Link>
         <div className="space-x-6">
           {navItems.map((item) => (

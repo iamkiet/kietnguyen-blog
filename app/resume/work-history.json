@@ -83,18 +83,5 @@
       "Written a technical document for a team member when the team process changes such as git flow, enhancement or new implementation.",
       "Interview new candidates and train for the fresher program."
     ]
-  },
-  {
-    "company": "Pakme",
-    "role": "Software Engineer Intern",
-    "period": "Jun 2016 - Nov 2016",
-    "project": "Nearest Parking Locator app",
-    "architecture": "Monolithic",
-    "techStack": "NodeJS, MongoDB, Google Maps API",
-    "position": "Developer",
-    "achievements": [
-      "A startup was born at that time to find the nearest parking.",
-      "Build a service to find nearby parking locations of current car locations using Google Map API."
-    ]
   }
 ]

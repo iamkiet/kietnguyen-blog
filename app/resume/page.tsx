@@ -7,18 +7,23 @@ import WorkExperienceBlock from "../../components/WorkExperienceBlock";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Professional resume of Kiet Nguyen - Senior Software Engineer with 5+ years experience in microservices, Kotlin, React, and cloud architecture.",
+    "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
   keywords: [
-    "kiet nguyen resume",
-    "software engineer resume",
+    "todaywegrind",
+    "kiet nguyen",
+    "resume",
+    "software engineering",
     "microservices",
-    "kotlin developer",
-    "react developer",
+    "kotlin",
+    "react",
+    "web development",
+    "developer blog",
+    "cloud architecture",
   ],
   openGraph: {
     title: "Resume - Kiet Nguyen",
     description:
-      "Professional resume of Kiet Nguyen - Senior Software Engineer with expertise in microservices and modern web development.",
+      "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     url: "https://kietnguyen.me/resume",
     type: "profile",
   },
@@ -26,8 +31,8 @@ export const metadata: Metadata = {
 
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-gray-100 pt-2">
-      <nav className="max-w-4xl mx-auto my-4 px-4">
+    <div className="min-h-screen bg-gray-100">
+      <nav className="max-w-4xl mx-auto my-4 px-4 bg-gray-100">
         <Link
           href="/"
           className="text-gray-600 hover:text-black transition-colors text-sm"
@@ -36,8 +41,8 @@ export default function Resume() {
         </Link>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-gray-800 text-white p-6 rounded-t-lg">
+      <div className="max-w-4xl mx-auto px-4 border-b-4 border-black">
+        <div className="bg-gray-700 text-white p-6 rounded-t-lg">
           <h1 className="text-3xl font-bold mb-1 uppercase tracking-wide">
             KIET NGUYEN
           </h1>
@@ -108,40 +113,14 @@ export default function Resume() {
                   </div>
                 </div>
               </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-black mb-4 uppercase">
-                  Languages
-                </h2>
-                <div className="space-y-1 text-sm">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <p className="text-black mr-2">•</p>
-                    </div>
-                    <div className="ml-2">
-                      <p className="text-black">Vietnamese</p>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <p className="text-black mr-2">•</p>
-                    </div>
-                    <div className="ml-2">
-                      <p className="text-black">English</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Right Side (50%) - Skills and Additional Links */}
             <div className="space-y-8">
-              {/* Skills and Proficiencies */}
               <div>
                 <h2 className="text-lg font-bold text-black mb-4 uppercase">
                   Skills and Proficiencies
                 </h2>
-                <div className="space-y-3 text-sm">
+                <div className="space-y-2 text-sm">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <p className="text-black mr-2">•</p>
@@ -265,7 +244,6 @@ export default function Resume() {
           </div>
         </div>
 
-        {/* Work History Section - Full Width */}
         <div className="bg-white p-6 shadow-sm">
           <h2 className="text-lg font-bold text-black mb-4 uppercase tracking-wide">
             Work History

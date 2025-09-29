@@ -13,14 +13,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kietnguyen.me'),
+  metadataBase: new URL("https://todaywegrind"),
   title: {
     default: "Kiet Nguyen - Software Engineer",
-    template: "%s | Kiet Nguyen"
+    template: "%s | Kiet Nguyen",
   },
-  description: "Software engineer specializing in scalable systems, microservices, and modern web development. Sharing insights about technology, coding, and engineering best practices.",
-  keywords: ["Kiet Nguyen", "Software Engineer", "Web Development", "Microservices", "Kotlin", "React", "Next.js", "Blog"],
-  authors: [{ name: "Kiet Nguyen", url: "https://kietnguyen.me" }],
+  description:
+    "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
+  keywords: [
+    "todaywegrind",
+    "kiet nguyen",
+    "coding",
+    "coffee",
+    "software engineering",
+    "developer blog",
+    "web development",
+    "programming",
+    "productivity",
+    "tech blog",
+    "javascript",
+    "node.js",
+    "react",
+    "career",
+    "learning",
+    "remote work",
+    "code tips",
+    "developer lifestyle",
+  ],
+  authors: [{ name: "Kiet Nguyen", url: "https://todaywegrind" }],
   creator: "Kiet Nguyen",
   publisher: "Kiet Nguyen",
   robots: {
@@ -29,31 +49,33 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kietnguyen.me",
-    siteName: "Kiet Nguyen - Software Engineer",
-    title: "Kiet Nguyen - Software Engineer",
-    description: "Software engineer specializing in scalable systems, microservices, and modern web development.",
+    url: "https://todaywegrind",
+    siteName: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
+    title: "Todaywegrind | Kiet Nguyen | Coding | Coffee", // You can use title.default here if you want to avoid hardcoding
+    description:
+      "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     images: [
       {
         url: "/profile.jpg",
         width: 1200,
         height: 630,
-        alt: "Kiet Nguyen - Software Engineer",
+        alt: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kiet Nguyen - Software Engineer",
-    description: "Software engineer specializing in scalable systems, microservices, and modern web development.",
+    title: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
+    description:
+      "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     images: ["/profile.jpg"],
     creator: "@kiet_nguyen",
   },
@@ -61,7 +83,10 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://kietnguyen.me",
+    canonical: "https://todaywegrind",
+  },
+  icons: {
+    icon: "/terminal-solid-full.svg", // Flaticon terminal icon
   },
 };
 
@@ -80,32 +105,32 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Kiet Nguyen",
-              "url": "https://kietnguyen.me",
-              "jobTitle": "Software Engineer",
-              "worksFor": {
+              name: "Kiet Nguyen",
+              url: "https://todaywegrind",
+              jobTitle: "Software Engineer",
+              worksFor: {
                 "@type": "Organization",
-                "name": "Thoughtworks"
+                name: "Thoughtworks",
               },
-              "address": {
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Ho Chi Minh City",
-                "addressCountry": "Vietnam"
+                addressLocality: "Ho Chi Minh City",
+                addressCountry: "Vietnam",
               },
-              "sameAs": [
+              sameAs: [
                 "https://linkedin.com/in/kiet-nguyen",
-                "https://github.com/kiet-nguyen"
+                "https://github.com/kiet-nguyen",
               ],
-              "knowsAbout": [
+              knowsAbout: [
                 "Software Engineering",
                 "Microservices",
                 "Kotlin",
                 "React",
                 "Next.js",
                 "Web Development",
-                "Cloud Architecture"
-              ]
-            })
+                "Cloud Architecture",
+              ],
+            }),
           }}
         />
       </head>
