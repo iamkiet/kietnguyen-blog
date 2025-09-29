@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://todaywegrind"),
   title: {
     default: "Kiet Nguyen - Software Engineer",
-    template: "%s | Kiet Nguyen",
+    template: "%s",
   },
   description:
     "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "code tips",
     "developer lifestyle",
   ],
-  authors: [{ name: "Kiet Nguyen", url: "https://todaywegrind" }],
+  authors: [{ name: "Kiet Nguyen", url: "https://todaywegrind.com" }],
   creator: "Kiet Nguyen",
   publisher: "Kiet Nguyen",
   robots: {
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://todaywegrind.com",
-    siteName: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
-    title: "Todaywegrind | Kiet Nguyen | Coding | Coffee", // You can use title.default here if you want to avoid hardcoding
+    siteName: "todaywegrind | kiet nguyen | coding | coffee",
+    title: "todaywegrind | kiet nguyen | coding | coffee", // You can use title.default here if you want to avoid hardcoding
     description:
       "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     images: [
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
         url: "/profile.jpg",
         width: 1200,
         height: 630,
-        alt: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
+        alt: "todaywegrind | kiet nguyen | coding | coffee",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Todaywegrind | Kiet Nguyen | Coding | Coffee",
+    title: "todaywegrind | kiet nguyen | coding | coffee",
     description:
       "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     images: ["/profile.jpg"],

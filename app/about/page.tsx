@@ -5,7 +5,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "todaywegrind | about",
   description:
     "Learn more about Kiet Nguyen - Senior Software Engineer with expertise in microservices, cloud architecture, and modern web development. Passionate about building scalable systems and mentoring developers.",
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "thoughtworks",
   ],
   openGraph: {
-    title: "About - Kiet Nguyen",
+    title: "todaywegrind | about",
     description:
       "Learn more about Kiet Nguyen - Senior Software Engineer with expertise in microservices and cloud architecture.",
     url: "https://todaywegrind.com/about",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-3xl mx-auto px-8">
+      <div className="max-w-2xl mx-auto px-8">
         <Navigation />
 
         {/* Header */}

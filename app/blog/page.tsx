@@ -7,7 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "todaywegrind | blog",
   description:
     "Read the latest thoughts and insights about software engineering, microservices, web development, and technology best practices by Kiet Nguyen.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "technology insights",
   ],
   openGraph: {
-    title: "Blog - Kiet Nguyen",
+    title: "todaywegrind | blog",
     description:
       "Read the latest thoughts and insights about software engineering, microservices, and web development.",
     url: "https://todaywegrind.com/blog",
@@ -57,7 +57,7 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-3xl mx-auto px-8">
+      <div className="max-w-2xl mx-auto px-8">
         <Navigation />
 
         {/* Blog Header */}

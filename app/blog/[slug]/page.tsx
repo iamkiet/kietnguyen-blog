@@ -21,7 +21,7 @@ export default function BlogPost({ params }: BlogPostProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-3xl mx-auto px-8">
+      <div className="max-w-2xl mx-auto px-8">
         <div className="pb-8">
           <Navigation />
         </div>

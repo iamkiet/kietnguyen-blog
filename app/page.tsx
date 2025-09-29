@@ -8,7 +8,7 @@ import path from "path";
 import matter from "gray-matter";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "👋 today we grind!",
   description:
     "Kiet Nguyen is a software engineer specializing in scalable systems and microservices. Explore insights about modern web development, technology, and engineering best practices.",
   openGraph: {
@@ -55,7 +55,7 @@ export default function Home() {
                 </span>
                 <span className="ml-1">
                   <span className="text-gray-600 hover:text-black transition-colors text-sm cursor-default rounded px-2 py-1">
-                    Ho Chi Minh City, Vietnam
+                    Ho Chi Minh City, Viet Nam
                   </span>
                 </span>
               </p>
