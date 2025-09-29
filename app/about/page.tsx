@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "About - Kiet Nguyen",
     description:
       "Learn more about Kiet Nguyen - Senior Software Engineer with expertise in microservices and cloud architecture.",
-    url: "https://kietnguyen.me/about",
+    url: "https://todaywegrind.com/about",
     type: "profile",
   },
 };

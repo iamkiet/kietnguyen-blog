@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Resume - Kiet Nguyen",
     description:
       "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
-    url: "https://kietnguyen.me/resume",
+    url: "https://todaywegrind.com/resume",
     type: "profile",
   },
 };
@@ -233,7 +233,7 @@ export default function Resume() {
                       <p className="text-black">
                         <span className="font-semibold">Blog:</span>
                         <span className="text-gray-700 ml-1">
-                          kietnguyen.me/blog
+                          https://todaywegrind.com/blog
                         </span>
                       </p>
                     </div>

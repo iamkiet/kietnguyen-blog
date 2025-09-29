@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Kiet Nguyen - Software Engineer",
     description:
       "Software engineer specializing in scalable systems and microservices. Explore insights about modern web development and technology.",
-    url: "https://kietnguyen.me",
+    url: "https://todaywegrind.com",
     images: ["/kietnguyen-profile.png"],
   },
 };

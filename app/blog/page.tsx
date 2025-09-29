@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Blog - Kiet Nguyen",
     description:
       "Read the latest thoughts and insights about software engineering, microservices, and web development.",
-    url: "https://kietnguyen.me/blog",
+    url: "https://todaywegrind.com/blog",
     type: "website",
   },
 };
