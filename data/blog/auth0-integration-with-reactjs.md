@@ -9,8 +9,6 @@ slug: "auth0-integration-with-reactjs"
 
 Auth0 is a popular authentication-as-a-service platform. In this post, we'll integrate Auth0 into a ReactJS app for secure login, logout, protecting routes, and calling secured APIs.
 
----
-
 ## Why Auth0?
 
 - **Easy integration** with React
@@ -18,15 +16,11 @@ Auth0 is a popular authentication-as-a-service platform. In this post, we'll int
 - **Secure and scalable**
 - **Supports RBAC** (roles, permissions, and access control)
 
----
-
 ## Prerequisites
 
 - Node.js and npm installed
 - A React project (e.g. created with `create-react-app` or Vite)
 - An Auth0 account
-
----
 
 ## Setting Up Auth0
 
@@ -41,15 +35,11 @@ Auth0 is a popular authentication-as-a-service platform. In this post, we'll int
    - **Allowed Logout URLs**
    - **Allowed Web Origins**
 
----
-
 ## Installing SDK
 
 ```bash
 npm install @auth0/auth0-react
 ```
-
----
 
 ## Configuring Environment Variables
 
@@ -62,8 +52,6 @@ REACT_APP_AUTH0_AUDIENCE=https://your-api-identifier (optional if using API)
 ```
 
 > ⚠️ Never hardcode secrets directly in your components.
-
----
 
 ## Wrapping the App with `Auth0Provider`
 
@@ -93,8 +81,6 @@ root.render(
   </Auth0Provider>
 );
 ```
-
----
 
 ## Using Auth0 Hooks for Login/Logout
 
@@ -127,8 +113,6 @@ function Profile() {
 export default Profile;
 ```
 
----
-
 ## Protecting Routes with Auth0
 
 You can restrict access to certain pages:
@@ -146,8 +130,6 @@ export default withAuthenticationRequired(Dashboard, {
 ```
 
 Now, when a user tries to access `/dashboard`, they will be redirected to Auth0 login if not authenticated.
-
----
 
 ## Calling a Secured API
 
@@ -186,8 +168,6 @@ function ApiCaller() {
 export default ApiCaller;
 ```
 
----
-
 ## Conclusion
 
 Auth0 makes authentication in ReactJS simple and secure:
@@ -198,10 +178,9 @@ Auth0 makes authentication in ReactJS simple and secure:
 - Integrated with a **secured API**
 
 Next steps:
+
 - Explore **roles & permissions** in the Auth0 dashboard
 - Add **social logins**
 - Implement **silent authentication** for smoother UX
 
 👉 Check out [Auth0 React SDK docs](https://auth0.com/docs/libraries/auth0-react) for deeper features.
-
----
