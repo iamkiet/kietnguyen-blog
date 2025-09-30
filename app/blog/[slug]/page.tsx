@@ -11,6 +11,8 @@ import Footer from "../../../components/Footer";
 import Navigation from "../../../components/Navigation";
 import ShareButtons from "@/components/ShareButtons";
 import { Metadata } from "next";
+import { Suspense } from "react";
+import { notFound } from "next/navigation";
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
@@ -22,8 +24,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const filePath = path.join(process.cwd(), "data/blog", `${slug}.md`);
   const file = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(file);
-  const title = data.title || "Kiet Nguyen - Software Engineer";
+  const { data, content } = matter(file);
+  // Fallback: extract first H1 as title if frontmatter title is missing
+  let title = data.title;
+  if (!title) {
+    const h1Match = content.match(/^# (.+)$/m);
+    title = h1Match ? h1Match[1].trim() : "Kiet Nguyen - Software Engineer";
+  }
   const description = data.description || "Todaywegrind - Blog by Kiet Nguyen";
   const url = `https://todaywegrind.com/blog/${slug}`;
   const image = "/sample.jpg";
@@ -56,8 +63,15 @@ export async function generateMetadata({
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
   const filePath = path.join(process.cwd(), "data/blog", `${slug}.md`);
+  if (!fs.existsSync(filePath)) return notFound();
   const file = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(file);
+  // Fallback: extract first H1 as title if frontmatter title is missing
+  let title = data.title;
+  if (!title) {
+    const h1Match = content.match(/^# (.+)$/m);
+    title = h1Match ? h1Match[1].trim() : "Kiet Nguyen - Software Engineer";
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,7 +82,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         <article className="mb-16">
           <header className="mb-12">
             <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-              {data.title}
+              {title}
             </h1>
             <div className="flex items-center space-x-4 text-sm text-gray-400 font-mono">
               <time>{data.date}</time>
@@ -176,7 +190,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </ReactMarkdown>
           </div>
         </article>
-        <ShareButtons slug={slug} title={data.title} />
+        <ShareButtons slug={slug} title={title} />
         <div className="pb-8 text-center">
           <Link
             href="/blog"
