@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
     images: [
       {
-        url: "/profile.jpg",
+        url: "/sample.jpg",
         width: 1200,
         height: 630,
         alt: "todaywegrind | kiet nguyen | coding | coffee",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: "todaywegrind | kiet nguyen | coding | coffee",
     description:
       "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
-    images: ["/profile.jpg"],
+    images: ["/sample.jpg"],
     creator: "@kiet_nguyen",
   },
   verification: {
