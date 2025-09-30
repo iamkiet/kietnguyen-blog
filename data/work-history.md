@@ -44,6 +44,7 @@ title: Work History
     - Interviewed candidates and conducted training for the fresher onboarding program.
 
 - **Tiki Corporation**
+
   - Role: Senior Software Engineer
   - Period: Apr 2021 - Sep 2023
   - Project: After-sales, Transportation
@@ -55,3 +56,22 @@ title: Work History
     - Analyze and join in designing a system to split the return goods feature from the legacy monolithic project, expose an endpoint and ensure that data is communicated consistently between services.
     - Develop UI interactive with scanning devices (PDA), dashboard and filtering products that support warehouse staff can inbound the product for each order.
     - Building a common dynamic table component that supports rendering new dashboards quickly with configuration input.
+
+- **NashTech**
+
+  - Role: Senior Software Engineer (Promotion)
+  - Period: May 2018 - Mar 2021
+  - Project: Education Management system (UK Education Company)
+  - Architecture: Microservice - Message queue: RabbitMQ
+  - Tech Stack: NodeJS, ReactJS, MySQL, Redis, Docker, Jenkin, AWS EC2, AWS CloudWatch, AWS Secret Manager
+  - Integrating: Microsoft Great Plains, Salesforce
+  - Achievements:
+    - Worked directly with the client to handle the assigned task and clarify business rules and expectations.
+    - Provide high/low-level system design for features.
+    - Developed feature under microservice architecture and handled service communication using RabbitMQ.
+    - Provide end-points to client sites and other parties.
+    - Compose change requests to prepare for next release such as which code will be deployed, list out some environment changes and which database part impacted.
+    - Tracing and analyzing the log, legacy data to find the root cause of some legacy issues.
+    - Increase Unit testing coverage and write for older features and new implementations.
+    - Written a technical document for a team member when the team process changes such as git flow, enhancement or new implementation.
+    - Interview new candidates and train for the fresher program.

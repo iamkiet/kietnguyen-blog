@@ -76,7 +76,7 @@ export default function Resume() {
                   </p>
                   <p>
                     <span className="font-semibold text-black">Address:</span>{" "}
-                    Tan Binh Dict, HCMC
+                    Tan Binh District, HCMC
                   </p>
                   <p>
                     <span className="font-semibold text-black">Email:</span>{" "}
@@ -96,7 +96,7 @@ export default function Resume() {
                     Bachelor of Science in Information Technology
                   </h3>
                   <p className="text-black text-sm">
-                    University of Science, Viet Nam National University HCMC
+                    University of Science, Viet Nam National University
                   </p>
                 </div>
               </div>
