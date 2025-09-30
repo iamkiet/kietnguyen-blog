@@ -63,7 +63,7 @@ export default function Blog() {
         {/* Blog Header */}
         <header className="mb-16">
           <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-            Blog
+            blog
           </h1>
           <p className="text-gray-600 leading-relaxed">
             thoughts and insights about software engineering, technology, and
@@ -71,7 +71,6 @@ export default function Blog() {
           </p>
         </header>
 
-        {/* Blog Posts List */}
         <main className="mb-16">
           <div className="space-y-12">
             {posts.map((post) => (
