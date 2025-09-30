@@ -6,12 +6,51 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
+
 import Footer from "../../../components/Footer";
 import Navigation from "../../../components/Navigation";
 import ShareButtons from "@/components/ShareButtons";
+import { Metadata } from "next";
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostProps): Promise<Metadata> {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "data/blog", `${slug}.md`);
+  const file = fs.readFileSync(filePath, "utf8");
+  const { data } = matter(file);
+  const title = data.title || "Kiet Nguyen - Software Engineer";
+  const description = data.description || "Todaywegrind - Blog by Kiet Nguyen";
+  const url = `https://todaywegrind.com/blog/${slug}`;
+  const image = "/sample.jpg";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
