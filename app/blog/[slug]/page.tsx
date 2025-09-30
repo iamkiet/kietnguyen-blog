@@ -33,7 +33,7 @@ export async function generateMetadata({
   }
   const description = data.description || "Todaywegrind - Blog by Kiet Nguyen";
   const url = `https://todaywegrind.com/blog/${slug}`;
-  const image = "/sample.jpg";
+  const image = "https://todaywegrind.com/sample.jpg";
   return {
     title,
     description,
