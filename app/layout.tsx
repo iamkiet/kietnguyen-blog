@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+import Script from "next/script";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -100,6 +102,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-V5XGTSGK2Y"
+          strategy="afterInteractive"
+        ></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-V5XGTSGK2Y');
+          `}
+        </Script>
         <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
