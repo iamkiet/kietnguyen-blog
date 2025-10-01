@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
   
   // Enable experimental features for better SEO
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled due to critters dependency issue
   },
   
   // Headers for better SEO and security
