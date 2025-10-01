@@ -7,23 +7,47 @@ import path from "path";
 import matter from "gray-matter";
 
 export const metadata: Metadata = {
-  title: "todaywegrind | blog",
+  title: "Blog | Today We Grind - Coding, Coffee & Developer Lifestyle",
   description:
-    "Read the latest thoughts and insights about software engineering, microservices, web development, and technology best practices by Kiet Nguyen.",
+    "Explore todaywegrindcoding insights, todaywegrindcoffee moments, and authentic developer lifestyle content. Read the latest thoughts on coding, coffee culture, software engineering, and modern developer experiences.",
   keywords: [
+    "todaywegrindcoding",
+    "todaywegrindcoffee",
+    "developer blog",
+    "coding blog",
+    "coffee coding",
+    "developer lifestyle",
     "software engineering blog",
     "microservices",
     "kotlin",
     "react",
     "web development",
     "technology insights",
+    "programming tips",
+    "tech career",
+    "developer productivity",
   ],
   openGraph: {
-    title: "todaywegrind | blog",
+    title: "Blog | Today We Grind - Coding, Coffee & Developer Lifestyle",
     description:
-      "Read the latest thoughts and insights about software engineering, microservices, and web development.",
+      "Explore todaywegrindcoding insights, todaywegrindcoffee moments, and authentic developer lifestyle content. Read the latest thoughts on coding, coffee culture, and modern developer experiences.",
     url: "https://todaywegrind.com/blog",
     type: "website",
+    images: [
+      {
+        url: "/kietnguyen-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Today We Grind Blog - Coding, Coffee & Developer Lifestyle",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Today We Grind - Coding, Coffee & Developer Lifestyle",
+    description:
+      "Explore todaywegrindcoding insights, todaywegrindcoffee moments, and authentic developer lifestyle content.",
+    images: ["/kietnguyen-profile.png"],
   },
 };
 
@@ -63,11 +87,13 @@ export default function Blog() {
         {/* Blog Header */}
         <header className="mb-16">
           <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-            blog
+            today we grind blog
           </h1>
           <p className="text-gray-600 leading-relaxed">
-            thoughts and insights about software engineering, technology, and
-            development.
+            thoughts and insights about coding, coffee culture, developer lifestyle, software engineering, and modern technology experiences.
+          </p>
+          <p className="text-sm text-gray-500 mt-2 italic">
+            todaywegrindcoding • todaywegrindcoffee • developer lifestyle
           </p>
         </header>
 

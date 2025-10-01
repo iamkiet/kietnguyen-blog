@@ -14,32 +14,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://todaywegrind"),
+  metadataBase: new URL("https://todaywegrind.com"),
   title: {
-    default: "Kiet Nguyen - Software Engineer",
-    template: "%s",
+    default: "Today We Grind | Coding, Coffee & Developer Lifestyle",
+    template: "%s | Today We Grind",
   },
   description:
-    "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
+    "Today We Grind is the ultimate destination for coding enthusiasts, coffee lovers, and developers embracing the modern lifestyle. Join Kiet Nguyen's journey of coding, coffee culture, and developer insights. Discover todaywegrindcoding tips, todaywegrindcoffee moments, and authentic developer lifestyle content.",
   keywords: [
+    "today we grind",
     "todaywegrind",
-    "kiet nguyen",
+    "todaywegrindcoding",
+    "todaywegrindcoffee",
     "coding",
     "coffee",
-    "software engineering",
+    "developer lifestyle",
     "developer blog",
+    "kiet nguyen",
+    "software engineering",
     "web development",
     "programming",
-    "productivity",
+    "tech lifestyle",
+    "coffee coding",
+    "developer culture",
+    "coding tips",
+    "coffee culture",
     "tech blog",
     "javascript",
     "node.js",
     "react",
-    "career",
-    "learning",
+    "career development",
+    "learning to code",
     "remote work",
-    "code tips",
-    "developer lifestyle",
+    "developer productivity",
+    "coding community",
+    "tech career",
+    "programming lifestyle",
+    "software developer",
+    "web developer",
+    "full stack developer",
+    "frontend developer",
+    "backend developer",
   ],
   authors: [{ name: "Kiet Nguyen", url: "https://todaywegrind.com" }],
   creator: "Kiet Nguyen",
@@ -59,26 +74,27 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://todaywegrind.com",
-    siteName: "todaywegrind | kiet nguyen | coding | coffee",
-    title: "todaywegrind | kiet nguyen | coding | coffee", // You can use title.default here if you want to avoid hardcoding
+    siteName: "Today We Grind | Coding, Coffee & Developer Lifestyle",
+    title: "Today We Grind | Coding, Coffee & Developer Lifestyle",
     description:
-      "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
+      "Today We Grind is the ultimate destination for coding enthusiasts, coffee lovers, and developers embracing the modern lifestyle. Join Kiet Nguyen's journey of coding, coffee culture, and developer insights.",
     images: [
       {
-        url: "/sample.jpg",
+        url: "/kietnguyen-profile.png",
         width: 1200,
         height: 630,
-        alt: "todaywegrind | kiet nguyen | coding | coffee",
+        alt: "Today We Grind - Coding, Coffee & Developer Lifestyle with Kiet Nguyen",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "todaywegrind | kiet nguyen | coding | coffee",
+    title: "Today We Grind | Coding, Coffee & Developer Lifestyle",
     description:
-      "Todaywegrind is the digital home of Kiet Nguyen—sharing insights on coding, coffee, software engineering, web development, and the modern developer lifestyle. Discover tips, stories, and resources for passionate programmers.",
-    images: ["/sample.jpg"],
-    creator: "@kiet_nguyen",
+      "Today We Grind is the ultimate destination for coding enthusiasts, coffee lovers, and developers embracing the modern lifestyle. Join Kiet Nguyen's journey of coding, coffee culture, and developer insights.",
+    images: ["/kietnguyen-profile.png"],
+    creator: "@todaywegrind",
+    site: "@todaywegrind",
   },
   verification: {
     google: "your-google-verification-code",
@@ -87,7 +103,12 @@ export const metadata: Metadata = {
     canonical: "https://todaywegrind.com",
   },
   icons: {
-    icon: "/terminal-solid-full.svg", // Flaticon terminal icon
+    icon: [
+      { url: "/terminal-solid-full.svg", type: "image/svg+xml" },
+      { url: "/terminal-solid-full.svg", sizes: "any" },
+    ],
+    shortcut: "/terminal-solid-full.svg",
+    apple: "/terminal-solid-full.svg",
   },
 };
 
@@ -99,16 +120,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/terminal-solid-full.svg" />
+        <link rel="icon" href="/terminal-solid-full.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/terminal-solid-full.svg" />
+        <link rel="apple-touch-icon" href="/terminal-solid-full.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
+              "@type": ["Person", "Blog"],
               name: "Kiet Nguyen",
+              alternateName: "Today We Grind",
               url: "https://todaywegrind.com",
               jobTitle: "Software Engineer",
+              description: "Today We Grind is the ultimate destination for coding enthusiasts, coffee lovers, and developers embracing the modern lifestyle. Join Kiet Nguyen's journey of coding, coffee culture, and developer insights.",
               worksFor: {
                 "@type": "Organization",
                 name: "Thoughtworks",
@@ -119,8 +144,8 @@ export default function RootLayout({
                 addressCountry: "Vietnam",
               },
               sameAs: [
-                "https://linkedin.com/in/kiet-nguyen",
-                "https://github.com/kiet-nguyen",
+                "https://linkedin.com/in/kiet-nguyen-tuan",
+                "https://github.com/iamkiet",
               ],
               knowsAbout: [
                 "Software Engineering",
@@ -130,7 +155,29 @@ export default function RootLayout({
                 "Next.js",
                 "Web Development",
                 "Cloud Architecture",
+                "Coding",
+                "Coffee Culture",
+                "Developer Lifestyle",
+                "Programming",
+                "Tech Career",
               ],
+              mainEntityOfPage: {
+                "@type": "WebSite",
+                "@id": "https://todaywegrind.com",
+                name: "Today We Grind",
+                description: "Today We Grind | Coding, Coffee & Developer Lifestyle",
+                url: "https://todaywegrind.com",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: "https://todaywegrind.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Today We Grind",
+                url: "https://todaywegrind.com"
+              }
             }),
           }}
         />

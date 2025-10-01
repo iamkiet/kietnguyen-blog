@@ -8,13 +8,13 @@ import path from "path";
 import matter from "gray-matter";
 
 export const metadata: Metadata = {
-  title: "👋 today we grind!",
+  title: "👋 Today We Grind! | Coding, Coffee & Developer Lifestyle",
   description:
-    "Kiet Nguyen is a software engineer specializing in scalable systems and microservices. Explore insights about modern web development, technology, and engineering best practices.",
+    "Welcome to Today We Grind! Join Kiet Nguyen's journey of coding, coffee culture, and authentic developer lifestyle. Discover todaywegrindcoding tips, todaywegrindcoffee moments, and insights into the modern developer world.",
   openGraph: {
-    title: "Kiet Nguyen - Software Engineer",
+    title: "Today We Grind! | Coding, Coffee & Developer Lifestyle",
     description:
-      "Software engineer specializing in scalable systems and microservices. Explore insights about modern web development and technology.",
+      "Welcome to Today We Grind! Join Kiet Nguyen's journey of coding, coffee culture, and authentic developer lifestyle. Discover todaywegrindcoding tips, todaywegrindcoffee moments, and insights into the modern developer world.",
     url: "https://todaywegrind.com",
     images: ["/kietnguyen-profile.png"],
   },
@@ -30,20 +30,27 @@ export default function Home() {
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mx-auto md:mx-0 flex-shrink-0 bg-gray-100">
               <Image
                 src="/kietnguyen-profile.png"
-                alt="Kiet Nguyen"
+                alt="Kiet Nguyen - Today We Grind Developer Profile - Coding, Coffee & Developer Lifestyle"
                 width={96}
                 height={96}
                 className="w-full h-full object-cover"
                 priority
+                sizes="(max-width: 768px) 80px, 96px"
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
             </div>
 
             <div className="flex-1 md:text-left text-center">
               <h1 className="text-1xl md:text-1xl mb-4 leading-tight text-center md:text-left font-bold">
-                kiet nguyen
+                today we grind
               </h1>
               <p className="text-gray-700 mb-6 text-center md:text-left font-light lowercase tracking-wide">
                 coding, coffee, developer lifestyle
+              </p>
+              <p className="text-xs text-gray-500 mb-4 text-center md:text-left italic">
+                todaywegrindcoding • todaywegrindcoffee • developer lifestyle
               </p>
               <p className="text-sm text-gray-400 font-mono mb-2 text-center md:text-left flex items-center justify-center md:justify-start gap-1">
                 <span

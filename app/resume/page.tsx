@@ -72,7 +72,7 @@ export default function Resume() {
                   </p>
                   <p>
                     <span className="font-semibold text-black">Phone:</span>{" "}
-                    0372011123
+                    hidden
                   </p>
                   <p>
                     <span className="font-semibold text-black">Address:</span>{" "}

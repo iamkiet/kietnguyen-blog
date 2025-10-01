@@ -47,14 +47,6 @@ spring:
     password: ${DB_PASSWORD:password}
 ```
 
-## Architecture Overview
-
-The following diagram shows how microservices communicate:
-
-![Microservices Architecture](/sample.jpg "Microservices communication flow")
-
-_Note: You can add images using markdown syntax: `![alt text](/image-path "optional title")`_
-
 ## Best Practices
 
 Here are some key practices I've learned:

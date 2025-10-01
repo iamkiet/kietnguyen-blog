@@ -5,23 +5,45 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "todaywegrind | about",
+  title: "About | Today We Grind - Coding, Coffee & Developer Lifestyle",
   description:
-    "Learn more about Kiet Nguyen - Senior Software Engineer with expertise in microservices, cloud architecture, and modern web development. Passionate about building scalable systems and mentoring developers.",
+    "Meet Kiet Nguyen from Today We Grind - Senior Software Engineer passionate about coding, coffee culture, and developer lifestyle. Discover todaywegrindcoding insights and todaywegrindcoffee moments from a developer who loves building scalable systems.",
   keywords: [
+    "about today we grind",
     "about kiet nguyen",
+    "todaywegrindcoding",
+    "todaywegrindcoffee",
+    "developer lifestyle",
     "software engineer",
     "microservices expert",
     "kotlin developer",
     "react developer",
+    "coffee coding",
     "thoughtworks",
+    "developer profile",
+    "tech career",
   ],
   openGraph: {
-    title: "todaywegrind | about",
+    title: "About | Today We Grind - Coding, Coffee & Developer Lifestyle",
     description:
-      "Learn more about Kiet Nguyen - Senior Software Engineer with expertise in microservices and cloud architecture.",
+      "Meet Kiet Nguyen from Today We Grind - Senior Software Engineer passionate about coding, coffee culture, and developer lifestyle. Discover todaywegrindcoding insights and todaywegrindcoffee moments.",
     url: "https://todaywegrind.com/about",
     type: "profile",
+    images: [
+      {
+        url: "/kn-profile-2.png",
+        width: 1200,
+        height: 630,
+        alt: "Kiet Nguyen - Today We Grind Developer Profile",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Today We Grind - Coding, Coffee & Developer Lifestyle",
+    description:
+      "Meet Kiet Nguyen from Today We Grind - Senior Software Engineer passionate about coding, coffee culture, and developer lifestyle.",
+    images: ["/kn-profile-2.png"],
   },
 };
 
@@ -33,8 +55,11 @@ export default function About() {
 
         <header className="mb-16">
           <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-            about me
+            about today we grind
           </h1>
+          <p className="text-sm text-gray-500 italic">
+            todaywegrindcoding • todaywegrindcoffee • developer lifestyle
+          </p>
         </header>
 
         <main className="space-y-16">
@@ -43,11 +68,15 @@ export default function About() {
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mx-auto md:mx-0 flex-shrink-0 bg-gray-100">
                 <Image
                   src="/kn-profile-2.png"
-                  alt="Kiet Nguyen"
+                  alt="Kiet Nguyen - Senior Software Engineer at Today We Grind - Coding, Coffee & Developer Lifestyle Expert"
                   width={160}
                   height={160}
                   className="w-full h-full object-cover"
                   priority
+                  sizes="(max-width: 768px) 128px, 160px"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
               </div>
 

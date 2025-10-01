@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import fs from "fs";
 import path from "path";
@@ -25,37 +26,61 @@ export async function generateMetadata({
   const filePath = path.join(process.cwd(), "data/blog", `${slug}.md`);
   const file = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(file);
+  
   // Fallback: extract first H1 as title if frontmatter title is missing
   let title = data.title;
   if (!title) {
     const h1Match = content.match(/^# (.+)$/m);
-    title = h1Match ? h1Match[1].trim() : "Kiet Nguyen - Software Engineer";
+    title = h1Match ? h1Match[1].trim() : "Today We Grind - Coding, Coffee & Developer Lifestyle";
   }
-  const description = data.description || "Todaywegrind - Blog by Kiet Nguyen";
+  
+  const description = data.description || 
+    `Read "${title}" on Today We Grind - your destination for coding insights, coffee culture, and authentic developer lifestyle content. Discover todaywegrindcoding tips and todaywegrindcoffee moments.`;
+  
   const url = `https://todaywegrind.com/blog/${slug}`;
-  const image = "https://todaywegrind.com/sample.jpg";
+  const image = "https://todaywegrind.com/kietnguyen-profile.png";
+  
   return {
-    title,
+    title: `${title} | Today We Grind`,
     description,
+    keywords: [
+      "todaywegrindcoding",
+      "todaywegrindcoffee", 
+      "developer lifestyle",
+      "coding blog",
+      "coffee coding",
+      "software engineering",
+      "web development",
+      "programming",
+      "tech blog",
+      ...(data.keywords || [])
+    ],
+    authors: [{ name: "Kiet Nguyen", url: "https://todaywegrind.com" }],
     openGraph: {
-      title,
+      title: `${title} | Today We Grind`,
       description,
       url,
       type: "article",
+      publishedTime: data.date,
+      authors: ["Kiet Nguyen"],
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: `${title} - Today We Grind Blog`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: `${title} | Today We Grind`,
       description,
       images: [image],
+      creator: "@todaywegrind",
+    },
+    alternates: {
+      canonical: url,
     },
   };
 }
@@ -79,6 +104,50 @@ export default async function BlogPost({ params }: BlogPostProps) {
         <div className="pb-8">
           <Navigation />
         </div>
+        
+        {/* Structured Data for Blog Post */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: title,
+              description: data.description || `Read "${title}" on Today We Grind - your destination for coding insights, coffee culture, and authentic developer lifestyle content.`,
+              image: "https://todaywegrind.com/kietnguyen-profile.png",
+              author: {
+                "@type": "Person",
+                name: "Kiet Nguyen",
+                url: "https://todaywegrind.com"
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Today We Grind",
+                url: "https://todaywegrind.com",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://todaywegrind.com/terminal-solid-full.svg"
+                }
+              },
+              datePublished: data.date,
+              dateModified: data.date,
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://todaywegrind.com/blog/${slug}`
+              },
+              url: `https://todaywegrind.com/blog/${slug}`,
+              keywords: [
+                "todaywegrindcoding",
+                "todaywegrindcoffee",
+                "developer lifestyle",
+                "coding blog",
+                "coffee coding",
+                "software engineering"
+              ]
+            }),
+          }}
+        />
+        
         <article className="mb-16">
           <header className="mb-12">
             <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
@@ -177,11 +246,18 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   </a>
                 ),
                 img: ({ src, alt }) => (
-                  <img
+                  <Image
                     src={typeof src === "string" ? src : ""}
-                    alt={alt || ""}
+                    alt={alt || "Blog post image from Today We Grind"}
+                    width={800}
+                    height={600}
                     className="rounded-lg mx-auto max-w-full h-auto"
                     style={{ objectFit: "contain" }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={85}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
                 ),
               }}
