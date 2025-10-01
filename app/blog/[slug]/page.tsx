@@ -12,7 +12,6 @@ import Footer from "../../../components/Footer";
 import Navigation from "../../../components/Navigation";
 import ShareButtons from "@/components/ShareButtons";
 import { Metadata } from "next";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 interface BlogPostProps {
