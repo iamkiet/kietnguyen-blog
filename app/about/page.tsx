@@ -55,7 +55,7 @@ export default function About() {
 
         <header className="mb-16">
           <h1 className="text-3xl md:text-4xl font-light mb-4 leading-tight">
-            about today we grind
+            about
           </h1>
           <p className="text-sm text-gray-500 italic">
             todaywegrindcoding • todaywegrindcoffee • developer lifestyle

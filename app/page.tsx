@@ -74,13 +74,13 @@ export default function Home() {
                   meet kiet
                 </Link>
                 <Link
-                  href="/gallery"
+                  href="/"
                   className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
                 >
                   gallery
                 </Link>
                 <Link
-                  href="/journey"
+                  href="/"
                   className="px-4 py-2 bg-[#525a66] text-white text-xs font-mono rounded-full hover:bg-gray-700 transition-colors"
                 >
                   journey
